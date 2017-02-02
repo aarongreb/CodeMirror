@@ -167,7 +167,7 @@ function registerEventHandlers(cm) {
       else if (!touch.prev.prev || farAway(touch, touch.prev.prev)) // Double tap
         range = cm.findWordAt(pos)
       else // Triple tap
-        range = new Range(Pos(pos.line, 0), clipPos(cm.doc, Pos(pos.line + 1, 0)))
+        range = new Range(Pos(pos.line, 0), clipPos(cm.doc, Pos(pos.line, pos.line.length)))
       cm.setSelection(range.anchor, range.head)
       cm.focus()
       e_preventDefault(e)
